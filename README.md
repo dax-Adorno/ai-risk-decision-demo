@@ -1,17 +1,16 @@
 
 # AI Risk Decision Demo
 
-Backend demo para **evaluación de riesgo crediticio**, orientado a la toma de decisiones de financiamiento (por ejemplo, créditos para vehículos).
+Demo **full-stack** para **evaluación de riesgo crediticio**, orientado a la toma de decisiones de financiamiento (por ejemplo, créditos para vehículos).
 
-La API recibe datos básicos del solicitante y devuelve:
-- **score de riesgo**
-- **nivel de riesgo**
-- **decisión**
-- **explicación trazable**
+El proyecto implementa un flujo completo **frontend + backend**:
 
-El objetivo del proyecto es mostrar cómo llevar una lógica de decisión (modelo de riesgo simplificado) a producción con buenas prácticas de backend.
-
----
+- El **frontend** permite ingresar datos del solicitante.
+- El **backend** evalúa el riesgo y devuelve:
+  - puntaje de riesgo
+  - nivel de riesgo
+  - decisión
+  - explicación trazable
 
 ## 🧠 Qué problema resuelve
 
@@ -33,6 +32,13 @@ Este proyecto simula ese flujo de punta a punta.
 - **Pytest** – testing automático
 - **Docker** – contenedorización
 - **Uvicorn** – ASGI server
+
+### Frontend
+- React
+- Vite
+- TypeScript
+- Fetch API
+- CSS (UI oscura)
 
 ---
 
@@ -196,7 +202,27 @@ Esto garantiza portabilidad y despliegue consistente.
 * Integración con frontend
 
 ---
+## 🎨 Interfaz de Usuario (Frontend)
 
+El frontend está desarrollado con **React + Vite + TypeScript** y consume el endpoint
+`POST /predict` del backend FastAPI.
+
+Permite:
+- Ingresar los datos del solicitante
+- Enviar la evaluación al backend
+- Visualizar puntaje, nivel de riesgo, decisión y explicación en castellano
+
+---
+
+### 📸 Capturas de pantalla
+
+**Formulario de ingreso de datos:**
+
+![Formulario de evaluación de riesgo](../docs/images/frontend.png)
+
+**Resultado de la evaluación:**
+
+![Resultado de la evaluación](../docs/images/frontend2.png)
 ## 📌 Nota
 
 Este proyecto es una **demo técnica**, pensada para mostrar:
