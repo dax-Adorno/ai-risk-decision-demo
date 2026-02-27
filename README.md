@@ -218,11 +218,11 @@ Permite:
 
 **Formulario de ingreso de datos:**
 
-![Formulario de evaluación de riesgo](../docs/images/frontend.png)
+![Formulario de evaluación de riesgo](docs/images/frontend.png)
 
 **Resultado de la evaluación:**
 
-![Resultado de la evaluación](../docs/images/frontend2.png)
+![Resultado de la evaluación](docs/images/frontend2.png)
 ## 📌 Nota
 
 Este proyecto es una **demo técnica**, pensada para mostrar:
