@@ -218,7 +218,7 @@ Permite:
 
 **Formulario de ingreso de datos:**
 
-![Formulario de evaluación de riesgo](docs/images/frontend.png)
+![Formulario de evaluación de riesgo](docs/images/demo.gif)
 
 **Resultado de la evaluación:**
 
@@ -231,3 +231,30 @@ Este proyecto es una **demo técnica**, pensada para mostrar:
 * buenas prácticas
 * capacidad de llevar un modelo de decisión a producción
 
+
+---
+
+## LLM y controles OWASP
+
+El backend puede usar un proveedor LLM compatible con `POST /chat/completions` sin cambiar el contrato publico de `POST /predict`.
+
+Variables de entorno:
+
+```bash
+LLM_ENABLED=true
+LLM_API_KEY=...
+LLM_MODEL=...
+LLM_BASE_URL=https://api.openai.com/v1
+CORS_ALLOWED_ORIGINS=http://localhost:5173
+```
+
+Si el LLM no esta configurado, falla o devuelve una respuesta fuera del schema esperado, la API usa el motor local de reglas como fallback auditable y marca `source="rules"`. Cuando la respuesta proviene del proveedor, marca `source="llm"`.
+
+Controles incluidos:
+
+* Validacion fuerte de entrada con Pydantic.
+* Validacion estricta de salida del LLM antes de responder al cliente.
+* Timeout de proveedor para evitar requests colgados.
+* CORS allowlist configurable, sin comodines.
+* Headers defensivos: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` y `Permissions-Policy`.
+* Sin exposicion de claves al frontend.
